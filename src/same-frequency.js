@@ -2,6 +2,10 @@ export const sameFrequency = (n1, n2) => {
   let s1 = n1 + '',
     s2 = n2 + '';
 
+  if (s1.length != s2.length) {
+    return false;
+  }
+
   let map = {};
 
   for (let c of s1) {
