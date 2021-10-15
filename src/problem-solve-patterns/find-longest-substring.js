@@ -10,7 +10,6 @@ export const findLongestSubstring = (word) => {
     const char = word[j];
 
     if (map[char] !== undefined) {
-      console.log(`${j + 1}. dup`);
       i = Math.max(i, map[char] + 1);
     }
 
