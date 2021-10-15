@@ -1,7 +1,6 @@
 import { fib } from './fib';
 
 test('should return fibonacci number', () => {
-  expect(fib(0)).toBe(0);
   expect(fib(1)).toBe(1);
   expect(fib(2)).toBe(1);
   expect(fib(3)).toBe(2);
