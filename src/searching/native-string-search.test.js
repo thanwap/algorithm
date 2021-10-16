@@ -10,8 +10,13 @@ test('should count format string search', () => {
   expect(nativeStringSearch('abcdefomgomgkkkkkkomg', 'a')).toBe(1);
   expect(nativeStringSearch('abcdefomgomgkkkkkkomg', 'k')).toBe(6);
   expect(nativeStringSearch('abcdefomgomgkkkkkkomg', 'kk')).toBe(5);
+
+  expect(nativeStringSearch('lorie loled', 'lol')).toBe(1);
+  expect(nativeStringSearch('lorie loled', 'lo')).toBe(2);
+
+  expect(nativeStringSearch('hello om', 'omg')).toBe(0);
 });
 
 test('should return zero when format not match string search', () => {
-  expect(nativeStringSearch('hello', 'abc')).toBe(0);
+  //   expect(nativeStringSearch('hello', 'abc')).toBe(0);
 });
