@@ -16,4 +16,7 @@ test('should sort item', () => {
   let arr5 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
   bubbleSort(arr5);
   expect(arr5).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  let arr6 = [10, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  bubbleSort(arr6);
+  expect(arr6).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
