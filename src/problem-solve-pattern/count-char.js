@@ -1,4 +1,4 @@
-import { isAlphaNumeric } from './utils';
+import { isAlphaNumeric } from '../utils/utils';
 
 export const countChar = (words) => {
   let res = {};

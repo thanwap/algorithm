@@ -25,3 +25,13 @@ test('isAlphaNumeric should return false on other', () => {
   expect(utils.isAlphaNumeric(' ')).toBe(false);
   expect(utils.isAlphaNumeric('.')).toBe(false);
 });
+
+test('swap shoud swap item in array', () => {
+  let arr1 = [1, 2, 3];
+  utils.swap(arr1, 0, 2);
+  expect(arr1).toEqual([3, 2, 1]);
+
+  let arr2 = [1, 2];
+  utils.swap(arr2, 0, 1);
+  expect(arr2).toEqual([2, 1]);
+});
