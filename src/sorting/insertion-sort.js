@@ -1,5 +1,3 @@
-import { swap } from '../utils/utils';
-
 export const insertionSort = (arr) => {
   if (arr.length <= 1) {
     return arr;
