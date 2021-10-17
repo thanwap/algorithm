@@ -6,14 +6,10 @@ export const insertionSort = (arr) => {
   }
 
   for (let i = 1; i < arr.length; i++) {
-    let mem = i;
-    for (let j = i - 1; j >= 0; j--) {
-      if (arr[mem] < arr[j]) {
-        swap(arr, j, mem);
-        mem--;
-      } else if (arr[mem] >= arr[j]) {
-        break;
-      }
+    const val = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > val; j--) {
+      arr[j + 1] = arr[j];
     }
+    arr[j + 1] = val;
   }
 };
