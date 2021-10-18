@@ -1,4 +1,15 @@
-export const mergeSort = (arr) => {};
+export const mergeSort = (arr) => {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const pivot = Math.floor(arr.length / 2);
+
+  return merge(
+    mergeSort(arr.slice(0, pivot)),
+    mergeSort(arr.slice(pivot, arr.length))
+  );
+};
 
 export const merge = (arr1, arr2) => {
   let res = [];
