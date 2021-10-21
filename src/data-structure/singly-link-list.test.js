@@ -154,9 +154,7 @@ describe('pop', () => {
       expect(res.head).toBe(res.tail);
       expect(res.head.val).toBe(1);
     });
-  });
 
-  describe('unshift', () => {
     it('should add val to head when list have one item and so on....', () => {
       let list = new SinglyLinkList();
       list.push(1);
@@ -168,6 +166,32 @@ describe('pop', () => {
       expect(res.head.val).toBe(3);
       expect(res.head.next.val).toBe(2);
       expect(res.tail.val).toBe(1);
+    });
+  });
+
+  describe('get', () => {
+    it('should get undefined when list is empty', () => {
+      let list = new SinglyLinkList();
+      var res = list.get(0);
+      expect(res).toBe(undefined);
+    });
+    it('should get undefined when list find index not in list', () => {
+      let list = new SinglyLinkList();
+      list.push(1);
+      var res = list.get(1);
+      expect(res).toBe(undefined);
+    });
+    it('should get node when found index', () => {
+      let list = new SinglyLinkList();
+      list.push(1);
+      list.push(2);
+      list.push(3);
+      list.push(4);
+
+      expect(list.get(0).val).toBe(1);
+      expect(list.get(1).val).toBe(2);
+      expect(list.get(2).val).toBe(3);
+      expect(list.get(3).val).toBe(4);
     });
   });
 });

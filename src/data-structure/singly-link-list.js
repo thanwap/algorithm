@@ -70,4 +70,18 @@ export class SinglyLinkList {
 
     return this;
   }
+  get(index) {
+    let current = this.head;
+    let counter = 0;
+
+    while (current) {
+      if (counter === index) {
+        return current;
+      }
+      current = current.next;
+      counter++;
+    }
+
+    return undefined;
+  }
 }
