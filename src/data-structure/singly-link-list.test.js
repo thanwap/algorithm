@@ -82,4 +82,16 @@ describe('pop', () => {
     expect(list.head.val).toBe(1);
     expect(list.tail.val).toBe(2);
   });
+
+  it('should empty items in list when have three items and pop them all', () => {
+    let list = new SinglyLinkList();
+    list.push(1).push(2).push(3);
+    list.pop();
+    list.pop();
+    list.pop();
+
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(list.tail).toBe(null);
+  });
 });
