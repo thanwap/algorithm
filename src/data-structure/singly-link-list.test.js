@@ -215,3 +215,41 @@ describe('set', () => {
     list.head.next.val = 2.5;
   });
 });
+
+describe('insert', () => {
+  it('should return false when index not found', () => {
+    let list = new SinglyLinkList();
+    expect(list.insert(1, 1)).toBe(false);
+    list.push(2);
+    expect(list.insert(2, 1)).toBe(false);
+    expect(list.insert(-2, 1)).toBe(false);
+  });
+
+  it('should return true and insert to head when index is zero', () => {
+    let list = new SinglyLinkList();
+    expect(list.insert(0, 1)).toBe(true);
+    expect(list.insert(0, 2)).toBe(true);
+    expect(list.head.val).toBe(2);
+  });
+
+  it('should return true and insert node before index node when index found', () => {
+    let list = new SinglyLinkList();
+    expect(list.insert(0, 1)).toBe(true);
+    expect(list.head.val).toBe(1);
+    expect(list.insert(0, 2)).toBe(true);
+    expect(list.head.val).toBe(2);
+    expect(list.tail.val).toBe(1);
+    expect(list.insert(1, 1.5)).toBe(true);
+    expect(list.head.val).toBe(2);
+    expect(list.head.val).toBe(2);
+    expect(list.head.next.val).toBe(1.5);
+    expect(list.tail.val).toBe(1);
+  });
+
+  it('should return true the end of the list when index equal list length', () => {
+    let list = new SinglyLinkList();
+    list.push(1).push(2).push(3);
+    expect(list.insert(3, 4)).toBe(true);
+    expect(list.tail.val).toBe(4);
+  });
+});

@@ -92,4 +92,27 @@ export class SinglyLinkList {
     node.val = val;
     return true;
   }
+  insert(index, val) {
+    if (index === 0) {
+      this.unshift(val);
+      return true;
+    }
+
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+
+    let leftNode = this.get(index - 1);
+    let rightNode = this.get(index);
+
+    leftNode.next = new Node(val);
+    leftNode.next.next = rightNode;
+
+    return true;
+  }
 }
