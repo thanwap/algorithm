@@ -145,4 +145,29 @@ describe('pop', () => {
       expect(list.tail).toBe(null);
     });
   });
+
+  describe('unshift', () => {
+    it('should add val to head when list is empty', () => {
+      let list = new SinglyLinkList();
+      const res = list.unshift(1);
+      expect(res.length).toBe(1);
+      expect(res.head).toBe(res.tail);
+      expect(res.head.val).toBe(1);
+    });
+  });
+
+  describe('unshift', () => {
+    it('should add val to head when list have one item and so on....', () => {
+      let list = new SinglyLinkList();
+      list.push(1);
+      const res = list.unshift(2);
+      expect(res.length).toBe(2);
+      expect(res.head.val).toBe(2);
+      expect(res.tail.val).toBe(1);
+      list.unshift(3);
+      expect(res.head.val).toBe(3);
+      expect(res.head.next.val).toBe(2);
+      expect(res.tail.val).toBe(1);
+    });
+  });
 });

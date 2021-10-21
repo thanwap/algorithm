@@ -58,4 +58,16 @@ export class SinglyLinkList {
 
     return oldHead;
   }
+  unshift(val) {
+    let newNode = new Node(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+
+    if (this.length === 1) {
+      this.tail = this.head;
+    }
+
+    return this;
+  }
 }
