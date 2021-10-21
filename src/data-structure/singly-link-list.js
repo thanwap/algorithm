@@ -19,21 +19,21 @@ export class SinglyLinkList {
     return this;
   }
   pop() {
-    if (this.head === null) {
-      return this;
-    }
-
-    if (this.head === this.tail) {
-      this.tail = null;
-      this.head = null;
-      this.length--;
-      return this;
+    if (!this.head) {
+      return undefined;
     }
 
     let current = this.head;
     let prev;
 
-    while (current && current.next) {
+    if (this.head === this.tail) {
+      this.tail = null;
+      this.head = null;
+      this.length--;
+      return current;
+    }
+
+    while (current.next) {
       prev = current;
       current = current.next;
     }
@@ -42,6 +42,6 @@ export class SinglyLinkList {
     this.tail = prev;
     this.length--;
 
-    return this;
+    return current;
   }
 }
