@@ -84,4 +84,12 @@ export class SinglyLinkList {
 
     return undefined;
   }
+  set(index, val) {
+    let node = this.get(index);
+    if (!node) {
+      return false;
+    }
+    node.val = val;
+    return true;
+  }
 }
