@@ -44,4 +44,18 @@ export class SinglyLinkList {
 
     return current;
   }
+  shift() {
+    if (!this.head) {
+      return undefined;
+    }
+
+    let oldHead = this.head;
+    this.head = this.head.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return oldHead;
+  }
 }

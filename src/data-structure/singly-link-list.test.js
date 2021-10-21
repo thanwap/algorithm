@@ -49,14 +49,14 @@ describe('push', () => {
 describe('pop', () => {
   it('should get undefined when list is empty', () => {
     let list = new SinglyLinkList();
-    let res = list.pop();
+    const res = list.pop();
     expect(res).toBe(undefined);
   });
 
   it('should get empty list when have one item', () => {
     let list = new SinglyLinkList();
     list.push(1);
-    let res = list.pop();
+    const res = list.pop();
     expect(res.val).toBe(1);
     expect(list.length).toBe(0);
     expect(list.head).toBe(null);
@@ -66,7 +66,7 @@ describe('pop', () => {
   it('should get one item in list when have two items', () => {
     let list = new SinglyLinkList();
     list.push(1).push(2);
-    let res = list.pop();
+    const res = list.pop();
     expect(res.val).toBe(2);
     expect(list.length).toBe(1);
     expect(list.head).toBe(list.tail);
@@ -76,7 +76,7 @@ describe('pop', () => {
   it('should get two items in list when have three items', () => {
     let list = new SinglyLinkList();
     list.push(1).push(2).push(3);
-    let res = list.pop();
+    const res = list.pop();
     expect(res.val).toBe(3);
     expect(list.length).toBe(2);
     expect(list.head.val).toBe(1);
@@ -93,5 +93,56 @@ describe('pop', () => {
     expect(list.length).toBe(0);
     expect(list.head).toBe(null);
     expect(list.tail).toBe(null);
+  });
+
+  describe('shift', () => {
+    it('should return undefined when list is empty', () => {
+      let list = new SinglyLinkList();
+      const res = list.shift();
+      expect(res).toBe(undefined);
+      expect(list.head).toBe(null);
+      expect(list.tail).toBe(null);
+    });
+
+    it('should return first item and get empty list when list have one item', () => {
+      let list = new SinglyLinkList();
+      list.push(1);
+      const res = list.shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(0);
+      expect(list.head).toBe(null);
+      expect(list.tail).toBe(null);
+    });
+
+    it('should return first item and get one item when list have two items', () => {
+      let list = new SinglyLinkList();
+      list.push(1).push(2);
+      const res = list.shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(1);
+      expect(list.head.val).toBe(2);
+      expect(list.tail.val).toBe(2);
+    });
+
+    it('should return first item and get two items when list have three items', () => {
+      let list = new SinglyLinkList();
+      list.push(1).push(2).push(3);
+      const res = list.shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(2);
+      expect(list.head.val).toBe(2);
+      expect(list.tail.val).toBe(3);
+    });
+
+    it('should return undefined and get empty when shift them all', () => {
+      let list = new SinglyLinkList();
+      list.push(1).push(2).push(3);
+      expect(list.shift().val).toBe(1);
+      expect(list.shift().val).toBe(2);
+      expect(list.shift().val).toBe(3);
+      expect(list.length).toBe(0);
+      expect(list.head).toBe(null);
+      expect(list.tail).toBe(null);
+    });
   });
 });
