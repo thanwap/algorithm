@@ -253,3 +253,50 @@ describe('insert', () => {
     expect(list.tail.val).toBe(4);
   });
 });
+
+describe('remove', () => {
+  let list = new SinglyLinkList();
+
+  beforeEach(() => {
+    list.push(1).push(2).push(3);
+  });
+
+  afterEach(() => {
+    list = new SinglyLinkList();
+  });
+
+  it('should return undefined when index is less than equal zero', () => {
+    expect(list.remove(-1)).toBe(undefined);
+  });
+
+  it('should return undefined when index is more than equal length', () => {
+    expect(list.remove(3)).toBe(undefined);
+  });
+
+  it('should shift when index is zero', () => {
+    const removed = list.remove(0);
+    expect(removed.val).toBe(1);
+    expect(list.length).toBe(2);
+  });
+
+  it('should pop when index is last item', () => {
+    const removed = list.remove(2);
+    expect(removed.val).toBe(3);
+    expect(list.length).toBe(2);
+  });
+
+  it('should pop when index is last item', () => {
+    const removed = list.remove(2);
+    expect(removed.val).toBe(3);
+    expect(list.length).toBe(2);
+  });
+
+  it('should remove item of index', () => {
+    const removed = list.remove(1);
+    expect(removed.val).toBe(2);
+    expect(list.length).toBe(2);
+    expect(list.head.val).toBe(1);
+    expect(list.head.next.val).toBe(3);
+    expect(list.tail.val).toBe(3);
+  });
+});

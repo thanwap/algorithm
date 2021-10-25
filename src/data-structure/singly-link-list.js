@@ -115,4 +115,23 @@ export class SinglyLinkList {
 
     return true;
   }
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    if (index === 0) {
+      return this.shift();
+    }
+
+    let prev = this.get(index - 1);
+    let toRemove = this.get(index);
+    prev.next = toRemove.next;
+    toRemove.next = null;
+    this.length--;
+
+    return toRemove;
+  }
 }
