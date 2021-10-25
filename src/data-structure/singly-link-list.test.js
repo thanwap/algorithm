@@ -300,3 +300,51 @@ describe('remove', () => {
     expect(list.tail.val).toBe(3);
   });
 });
+
+describe('reverse', () => {
+  let list = new SinglyLinkList();
+
+  afterEach(() => {
+    list = new SinglyLinkList();
+  });
+
+  it('should do nothing when length is one', () => {
+    list.push(1);
+    list.reverse();
+    expect(list.length).toBe(1);
+    expect(list.head).toEqual(list.tail);
+  });
+
+  it('should do nothing when length is one', () => {
+    list.reverse();
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+  });
+
+  it('should reverse item in list of 2 itmes', () => {
+    list.push(1).push(2);
+    list.reverse();
+    expect(list.head.val).toBe(2);
+    expect(list.head.next.val).toBe(1);
+    expect(list.tail.val).toBe(1);
+  });
+
+  it('should reverse item in list of 3 items', () => {
+    list.push(1).push(2).push(3);
+    list.reverse();
+    expect(list.head.val).toBe(3);
+    expect(list.head.next.val).toBe(2);
+    expect(list.head.next.next.val).toBe(1);
+    expect(list.tail.val).toBe(1);
+  });
+
+  it('should reverse item in list of 4 items', () => {
+    list.push(1).push(2).push(3).push(4);
+    list.reverse();
+    expect(list.head.val).toBe(4);
+    expect(list.head.next.val).toBe(3);
+    expect(list.head.next.next.val).toBe(2);
+    expect(list.head.next.next.next.val).toBe(1);
+    expect(list.tail.val).toBe(1);
+  });
+});

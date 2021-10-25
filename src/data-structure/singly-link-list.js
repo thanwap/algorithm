@@ -134,4 +134,27 @@ export class SinglyLinkList {
 
     return toRemove;
   }
+  reverse() {
+    if (this.length <= 1) {
+      return;
+    }
+
+    let newTail = this.head;
+    let current = this.head;
+
+    let left;
+    while (current) {
+      let nextNode = current.next;
+
+      if (left) {
+        current.next = left;
+      }
+
+      left = current;
+      current = nextNode;
+    }
+
+    this.head = left;
+    this.tail = newTail;
+  }
 }
