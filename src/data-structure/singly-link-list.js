@@ -127,7 +127,7 @@ export class SinglyLinkList {
     }
 
     let prev = this.get(index - 1);
-    let toRemove = this.get(index);
+    let toRemove = prev.next;
     prev.next = toRemove.next;
     toRemove.next = null;
     this.length--;
