@@ -136,7 +136,7 @@ export class SinglyLinkList {
   }
   reverse() {
     if (this.length <= 1) {
-      return;
+      return this;
     }
 
     let newTail = this.head;
@@ -156,5 +156,7 @@ export class SinglyLinkList {
 
     this.head = left;
     this.tail = newTail;
+
+    return this;
   }
 }

@@ -308,25 +308,29 @@ describe('reverse', () => {
     list = new SinglyLinkList();
   });
 
+  it('should do nothing when length is zero', () => {
+    const res = list.reverse();
+    expect(list.length).toBe(0);
+    expect(list.head).toBe(null);
+    expect(res).toEqual(list);
+  });
+
   it('should do nothing when length is one', () => {
+    const res = list.reverse();
     list.push(1);
     list.reverse();
     expect(list.length).toBe(1);
     expect(list.head).toEqual(list.tail);
-  });
-
-  it('should do nothing when length is one', () => {
-    list.reverse();
-    expect(list.length).toBe(0);
-    expect(list.head).toBe(null);
+    expect(res).toEqual(list);
   });
 
   it('should reverse item in list of 2 itmes', () => {
     list.push(1).push(2);
-    list.reverse();
+    const res = list.reverse();
     expect(list.head.val).toBe(2);
     expect(list.head.next.val).toBe(1);
     expect(list.tail.val).toBe(1);
+    expect(res).toEqual(list);
   });
 
   it('should reverse item in list of 3 items', () => {
