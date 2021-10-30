@@ -138,4 +138,18 @@ export class DoublyLinkdList {
 
     return removedItem;
   }
+  reverse() {
+    let cur = this.head;
+
+    while (cur) {
+      let tempNext = cur.next;
+      cur.next = cur.prev;
+      cur.prev = tempNext;
+      cur = tempNext;
+    }
+
+    let oldHead = this.head;
+    this.head = this.tail;
+    this.tail = oldHead;
+  }
 }

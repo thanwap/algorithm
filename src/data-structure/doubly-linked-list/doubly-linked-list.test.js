@@ -286,4 +286,20 @@ describe('doubly linked list', () => {
       expect(list.remove(0)).toBe(undefined);
     });
   });
+
+  describe('revers', () => {
+    it('should reverese items', () => {
+      list.push(1).push(2).push(3);
+      list.reverse();
+      expect(list.head.val).toBe(3);
+      expect(list.head.next.val).toBe(2);
+      expect(list.head.next.next.val).toBe(1);
+      expect(list.head.next.next.next).toBe(null);
+
+      expect(list.tail.val).toBe(1);
+      expect(list.tail.prev.val).toBe(2);
+      expect(list.tail.prev.prev.val).toBe(3);
+      expect(list.tail.prev.prev.prev).toBe(null);
+    });
+  });
 });
