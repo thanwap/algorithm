@@ -9,7 +9,7 @@ describe('doubly linked list', () => {
 
   describe('push', () => {
     test('should add an item to the head of the list', () => {
-      let res = list.push(1);
+      const res = list.push(1);
       expect(res.length).toBe(1);
       expect(res.head).toEqual(res.tail);
       expect(res.head.val).toBe(1);
@@ -17,7 +17,7 @@ describe('doubly linked list', () => {
     });
 
     test('should add an item to the next after the head item', () => {
-      let res = list.push(1).push(2);
+      const res = list.push(1).push(2);
       expect(res.length).toBe(2);
       expect(res.head.val).toBe(1);
       expect(res.head.next.val).toEqual(2);
@@ -25,7 +25,7 @@ describe('doubly linked list', () => {
     });
 
     test('should add an item to the next after the tail item', () => {
-      let res = list.push(1).push(2).push(3);
+      const res = list.push(1).push(2).push(3);
       expect(res.length).toBe(3);
       expect(res.head.val).toBe(1);
       expect(res.head.next.val).toBe(2);
@@ -43,7 +43,7 @@ describe('doubly linked list', () => {
 
   describe('pop', () => {
     it('should remove and return tail item from list', () => {
-      let res = list.push(1).push(2).push(3).pop();
+      const res = list.push(1).push(2).push(3).pop();
       expect(res.val).toBe(3);
       expect(list.length).toBe(2);
       expect(list.tail.val).toBe(2);
@@ -51,7 +51,7 @@ describe('doubly linked list', () => {
     });
 
     it('should remove and return tail item from list when have two item', () => {
-      let res = list.push(1).push(2).pop();
+      const res = list.push(1).push(2).pop();
       expect(res.val).toBe(2);
       expect(list.length).toBe(1);
       expect(list.head).toEqual(list.tail);
@@ -60,7 +60,7 @@ describe('doubly linked list', () => {
     });
 
     it('should remove and return tail item from list when have one item', () => {
-      let res = list.push(1).pop();
+      const res = list.push(1).pop();
       expect(res.val).toBe(1);
       expect(list.length).toBe(0);
       expect(list.tail).toBe(null);
@@ -68,7 +68,44 @@ describe('doubly linked list', () => {
     });
 
     it('should return undefined when remove empty list', () => {
-      let res = list.pop();
+      const res = list.pop();
+      expect(res).toBe(undefined);
+      expect(list.length).toBe(0);
+      expect(list.tail).toBe(null);
+      expect(list.head).toBe(null);
+    });
+  });
+
+  describe('shift', () => {
+    it('should remove and return first item from list', () => {
+      const res = list.push(1).push(2).push(3).shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(2);
+      expect(list.head.val).toBe(2);
+      expect(list.head.prev).toBe(null);
+      expect(list.head.next.val).toBe(3);
+    });
+
+    it('should remove and return first item from list when have two item', () => {
+      const res = list.push(1).push(2).shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(1);
+      expect(list.head).toEqual(list.tail);
+      expect(list.head.prev).toEqual(null);
+      expect(list.tail.val).toBe(2);
+      expect(list.tail.next).toBe(null);
+    });
+
+    it('should remove and return head item from list when have one item', () => {
+      const res = list.push(1).shift();
+      expect(res.val).toBe(1);
+      expect(list.length).toBe(0);
+      expect(list.tail).toBe(null);
+      expect(list.head).toBe(null);
+    });
+
+    it('should return undefined when remove empty list', () => {
+      const res = list.shift();
       expect(res).toBe(undefined);
       expect(list.length).toBe(0);
       expect(list.tail).toBe(null);
