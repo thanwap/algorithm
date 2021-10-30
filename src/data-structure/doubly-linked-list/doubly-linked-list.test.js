@@ -245,4 +245,45 @@ describe('doubly linked list', () => {
       expect(list.length).toBe(3);
     });
   });
+
+  describe('remove', () => {
+    it('should return pop item when remove last item', () => {
+      list.push(1).push(2).push(3);
+      expect(list.remove(2).val).toBe(3);
+      expect(list.length).toBe(2);
+      expect(list.remove(1).val).toBe(2);
+      expect(list.length).toBe(1);
+      expect(list.remove(0).val).toBe(1);
+      expect(list.length).toBe(0);
+    });
+
+    it('should return shift item when remove first item', () => {
+      list.push(1).push(2).push(3);
+      expect(list.remove(0).val).toBe(1);
+      expect(list.length).toBe(2);
+      expect(list.remove(0).val).toBe(2);
+      expect(list.length).toBe(1);
+      expect(list.remove(0).val).toBe(3);
+      expect(list.length).toBe(0);
+    });
+
+    it('should return removed item', () => {
+      list.push(1).push(2).push(3);
+      expect(list.remove(1).val).toBe(2);
+      expect(list.length).toBe(2);
+      expect(list.head.val).toBe(1);
+      expect(list.head.next.val).toBe(3);
+      expect(list.tail.prev.val).toBe(1);
+    });
+
+    it('should return undefined when index not match', () => {
+      list.push(1).push(2).push(3);
+      expect(list.remove(-1)).toBe(undefined);
+      expect(list.remove(3)).toBe(undefined);
+      list.pop();
+      list.pop();
+      list.pop();
+      expect(list.remove(0)).toBe(undefined);
+    });
+  });
 });

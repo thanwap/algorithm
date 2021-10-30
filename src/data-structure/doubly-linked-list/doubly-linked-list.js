@@ -118,4 +118,24 @@ export class DoublyLinkdList {
 
     return true;
   }
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    } else if (index === this.length - 1) {
+      return this.pop();
+    } else if (index === 0) {
+      return this.shift();
+    }
+
+    let removedItem = this.get(index);
+    let left = removedItem.prev;
+    let right = removedItem.next;
+    left.next = right;
+    right.prev = left;
+    removedItem.next = null;
+    removedItem.prev = null;
+    this.length--;
+
+    return removedItem;
+  }
 }
