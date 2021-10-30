@@ -202,4 +202,47 @@ describe('doubly linked list', () => {
       expect(list.get(0).val).toBe(1);
     });
   });
+
+  describe('insert', () => {
+    it('should insert after head when index is 0 and return true', () => {
+      list.push(1).push(2).push(3);
+      expect(list.insert(0, 1.5)).toBe(true);
+      expect(list.head.val).toBe(1);
+      expect(list.head.next.val).toBe(1.5);
+      expect(list.head.next.next.val).toBe(2);
+      expect(list.head.next.next.prev.val).toBe(1.5);
+    });
+
+    it('should insert after the item of index and return true', () => {
+      list.push(1).push(2).push(3);
+      expect(list.insert(1, 2.5)).toBe(true);
+      expect(list.head.val).toBe(1);
+      expect(list.head.next.val).toBe(2);
+      expect(list.head.next.next.val).toBe(2.5);
+      expect(list.head.next.next.prev.val).toBe(2);
+      expect(list.head.next.next.prev.prev.val).toBe(1);
+      expect(list.head.next.next.next.val).toBe(3);
+      expect(list.tail.val).toBe(3);
+    });
+
+    it('should unshift and return true when index is 0 and empty list', () => {
+      expect(list.insert(0, 1)).toBe(true);
+      expect(list.head.val).toBe(1);
+      expect(list.head.next).toBe(null);
+    });
+
+    it('should push and return true when index is last item', () => {
+      list.push(1).push(2).push(3);
+      expect(list.insert(2, 4)).toBe(true);
+      expect(list.tail.val).toBe(4);
+      expect(list.tail.prev.val).toBe(3);
+    });
+
+    it('should return false when index is not in item', () => {
+      list.push(1).push(2).push(3);
+      expect(list.insert(-1, 4)).toBe(false);
+      expect(list.insert(3, 4)).toBe(false);
+      expect(list.length).toBe(3);
+    });
+  });
 });

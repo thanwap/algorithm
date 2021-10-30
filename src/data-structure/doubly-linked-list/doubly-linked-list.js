@@ -94,4 +94,28 @@ export class DoublyLinkdList {
     item.val = val;
     return true;
   }
+  insert(index, val) {
+    if (this.length === 0 && index === 0) {
+      this.unshift(val);
+      return true;
+    } else if (index === this.length - 1) {
+      this.push(val);
+      return true;
+    }
+
+    if (index < 0 || index >= this.length) {
+      return false;
+    }
+
+    let newNode = new Node(val);
+    let item = this.get(index + 1);
+    newNode.next = item;
+    newNode.prev = item.prev;
+    item.prev.next = newNode;
+    item.prev = newNode;
+
+    this.length++;
+
+    return true;
+  }
 }
