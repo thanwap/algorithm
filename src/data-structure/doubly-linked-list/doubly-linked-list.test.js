@@ -122,4 +122,32 @@ describe('doubly linked list', () => {
       expect(res.next).toBe(null);
     });
   });
+
+  describe('unshift', () => {
+    it('should add item to head and return list', () => {
+      const res = list.push(1).push(2).unshift(0);
+      expect(res.head.val).toBe(0);
+      expect(res.length).toBe(3);
+      expect(res.head.next.val).toBe(1);
+      expect(res.head.next.prev).toEqual(res.head);
+      expect(res.head.next.next.val).toBe(2);
+      expect(res.head.next.next).toEqual(res.tail);
+    });
+
+    it('should add item to head and return list when list have one item', () => {
+      const res = list.push(1).unshift(0);
+      expect(res.head.val).toBe(0);
+      expect(res.length).toBe(2);
+      expect(res.head.next).toEqual(res.tail);
+      expect(res.tail.prev).toEqual(res.head);
+    });
+
+    it('should add item to head and return list when list is empty', () => {
+      const res = list.unshift(0);
+      expect(res.head.val).toBe(0);
+      expect(res.length).toBe(1);
+      expect(res.head.next).toBe(null);
+      expect(res.head).toEqual(res.tail);
+    });
+  });
 });

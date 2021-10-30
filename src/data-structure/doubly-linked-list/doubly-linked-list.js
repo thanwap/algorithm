@@ -57,4 +57,19 @@ export class DoublyLinkdList {
     this.length--;
     return removedItem;
   }
+  unshift(val) {
+    if (this.length === 0) {
+      this.push(val);
+      return this;
+    }
+
+    let newNode = new Node(val);
+
+    newNode.next = this.head;
+    this.head.prev = newNode;
+    this.head = newNode;
+
+    this.length++;
+    return this;
+  }
 }
