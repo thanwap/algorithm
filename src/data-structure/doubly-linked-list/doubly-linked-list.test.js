@@ -74,6 +74,11 @@ describe('doubly linked list', () => {
       expect(list.tail).toBe(null);
       expect(list.head).toBe(null);
     });
+
+    it('should set prev of removed item to null', () => {
+      const res = list.push(1).push(2).push(3).pop();
+      expect(res.prev).toBe(null);
+    });
   });
 
   describe('shift', () => {
@@ -110,6 +115,11 @@ describe('doubly linked list', () => {
       expect(list.length).toBe(0);
       expect(list.tail).toBe(null);
       expect(list.head).toBe(null);
+    });
+
+    it('should set next of removed item to null', () => {
+      const res = list.push(1).push(2).push(3).shift();
+      expect(res.next).toBe(null);
     });
   });
 });

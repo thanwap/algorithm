@@ -34,7 +34,9 @@ export class DoublyLinkdList {
       this.tail.next = null;
     }
 
+    removedItem.prev = null;
     this.length--;
+
     return removedItem;
   }
   shift() {
@@ -51,7 +53,7 @@ export class DoublyLinkdList {
       this.head = this.head.next;
       this.head.prev = null;
     }
-
+    removedItem.next = null;
     this.length--;
     return removedItem;
   }
