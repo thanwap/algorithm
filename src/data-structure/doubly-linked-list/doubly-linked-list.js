@@ -72,4 +72,18 @@ export class DoublyLinkdList {
     this.length++;
     return this;
   }
+  get(index) {
+    const startFromHead = index <= this.length / 2;
+    let cur = startFromHead ? this.head : this.tail;
+    let curIndex = startFromHead ? 0 : this.length - 1;
+    while (cur) {
+      if (curIndex === index) {
+        return cur;
+      }
+
+      cur = startFromHead ? cur.next : cur.prev;
+      curIndex = startFromHead ? curIndex + 1 : curIndex - 1;
+    }
+    return null;
+  }
 }

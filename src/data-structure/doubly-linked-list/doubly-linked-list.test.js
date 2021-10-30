@@ -150,4 +150,42 @@ describe('doubly linked list', () => {
       expect(res.head).toEqual(res.tail);
     });
   });
+
+  describe('get', () => {
+    it('should return head when get index of 0', () => {
+      const res = list.push(1).push(2).push(3).push(4).get(0);
+      expect(res.val).toBe(1);
+    });
+
+    it('should return tail when get last index of items', () => {
+      const res = list.push(1).push(2).push(3).push(4).get(3);
+      expect(res.val).toBe(4);
+    });
+
+    it('should return item of the index of the list when start from head', () => {
+      const res = list.push(1).push(2).push(3).push(4).get(1);
+      expect(res.val).toBe(2);
+    });
+
+    it('should return item of the index of the list when start from tail', () => {
+      const res = list.push(1).push(2).push(3).push(4).get(2);
+      expect(res.val).toBe(3);
+    });
+
+    it('should return item when founded', () => {
+      list.push(1);
+      expect(list.get(0).val).toBe(1);
+    });
+
+    it('should return null when not found', () => {
+      list.push(1);
+      expect(list.get(1)).toBe(null);
+    });
+
+    it('should return null when list is empty', () => {
+      expect(list.get(0)).toBe(null);
+      expect(list.get(1)).toBe(null);
+      expect(list.get(5)).toBe(null);
+    });
+  });
 });
