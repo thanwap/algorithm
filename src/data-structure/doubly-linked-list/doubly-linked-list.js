@@ -86,4 +86,12 @@ export class DoublyLinkdList {
     }
     return null;
   }
+  set(index, val) {
+    let item = this.get(index);
+    if (!item) {
+      return false;
+    }
+    item.val = val;
+    return true;
+  }
 }

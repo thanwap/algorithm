@@ -188,4 +188,18 @@ describe('doubly linked list', () => {
       expect(list.get(5)).toBe(null);
     });
   });
+
+  describe('set', () => {
+    it('should set val and return true', () => {
+      var res = list.push(1).set(0, 99);
+      expect(res).toBe(true);
+      expect(list.get(0).val).toBe(99);
+    });
+
+    it('should not set val and return false when not found', () => {
+      var res = list.push(1).set(1, 99);
+      expect(res).toBe(false);
+      expect(list.get(0).val).toBe(1);
+    });
+  });
 });
