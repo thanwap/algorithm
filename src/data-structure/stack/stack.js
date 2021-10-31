@@ -19,21 +19,17 @@ export class Stack {
   }
   pop() {
     if (this.size === 0) {
-      return undefined;
+      return null;
     }
 
     let popedItem = this.first;
 
     if (this.size === 1) {
-      this.first = null;
       this.last = null;
-    } else {
-      this.first = this.first.next;
     }
 
-    popedItem.next = null;
+    this.first = this.first.next;
     this.size--;
-
-    return popedItem;
+    return popedItem.val;
   }
 }

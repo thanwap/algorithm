@@ -25,26 +25,23 @@ describe('stack', () => {
     it('should remove first item and set new item to next', () => {
       stack.push(1).push(2).push(3);
       let popedItem = stack.pop();
-      expect(popedItem.val).toBe(3);
-      expect(popedItem.next).toBe(null);
+      expect(popedItem).toBe(3);
       expect(stack.first.val).toBe(2);
       expect(stack.size).toBe(2);
 
       popedItem = stack.pop();
-      expect(popedItem.val).toBe(2);
-      expect(popedItem.next).toBe(null);
+      expect(popedItem).toBe(2);
       expect(stack.first.val).toBe(1);
       expect(stack.size).toBe(1);
 
       popedItem = stack.pop();
-      expect(popedItem.val).toBe(1);
-      expect(popedItem.next).toBe(null);
+      expect(popedItem).toBe(1);
       expect(stack.size).toBe(0);
       expect(stack.first).toBe(null);
       expect(stack.last).toBe(null);
 
       popedItem = stack.pop();
-      expect(popedItem).toBe(undefined);
+      expect(popedItem).toBe(null);
       expect(stack.size).toBe(0);
     });
   });
