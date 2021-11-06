@@ -5,7 +5,7 @@ export class Queue {
     this.last = null;
     this.size = 0;
   }
-  eneuqeue(val) {
+  enqueue(val) {
     let newNode = new Node(val);
     if (this.size === 0) {
       this.first = newNode;

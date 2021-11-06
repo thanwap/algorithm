@@ -9,13 +9,13 @@ describe('queue', () => {
 
   describe('enqueue', () => {
     test('should set first and last to new item', () => {
-      let res = q.eneuqeue(1);
+      let res = q.enqueue(1);
       expect(res.first).toEqual(res.last);
       expect(res.first.val).toEqual(1);
       expect(res.size).toBe(1);
     });
     test('should set item to first when queue have more than one item', () => {
-      let res = q.eneuqeue(1).eneuqeue(2).eneuqeue(3);
+      let res = q.enqueue(1).enqueue(2).enqueue(3);
       expect(res.first.val).toBe(1);
       expect(res.first.next.val).toBe(2);
       expect(res.first.next.next.val).toBe(3);
@@ -25,7 +25,7 @@ describe('queue', () => {
 
   describe('dequeue', () => {
     test('should remove and return first item', () => {
-      q.eneuqeue(1).eneuqeue(2).eneuqeue(3);
+      q.enqueue(1).enqueue(2).enqueue(3);
       expect(q.dequeue().val).toBe(1);
       expect(q.size).toBe(2);
       expect(q.dequeue().val).toBe(2);
