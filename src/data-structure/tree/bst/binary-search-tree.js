@@ -16,19 +16,19 @@ export class BinarySearchTree {
       if (newNode.val < current.val) {
         if (!current.left) {
           current.left = newNode;
-          current = null;
+          return this;
         } else {
           current = current.left;
         }
       } else if (newNode.val > current.val) {
         if (!current.right) {
           current.right = newNode;
-          current = null;
+          return this;
         } else {
           current = current.right;
         }
       } else {
-        current = null;
+        return this;
       }
     }
 
