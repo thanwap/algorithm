@@ -12,7 +12,6 @@ test('should sort item', () => {
   expect(arr3).toEqual([1, 2]);
   let arr4 = [2, 8, 1, 3, 5, 4];
   insertionSort(arr4);
-  console.log(arr4);
   expect(arr4).toEqual([1, 2, 3, 4, 5, 8]);
   let arr5 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
   insertionSort(arr5);
