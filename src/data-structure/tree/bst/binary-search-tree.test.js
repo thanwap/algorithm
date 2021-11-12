@@ -60,3 +60,43 @@ describe('insert', () => {
     expect(tree.root.right.right.right.val).toBe(9);
   });
 });
+
+describe('find', () => {
+  it('should found root', () => {
+    let tree = new BinarySearchTree();
+    tree.insert(5);
+    expect(tree.find(5).val).toBe(5);
+  });
+
+  it('should found right of the root', () => {
+    let tree = new BinarySearchTree();
+    tree.insert(5);
+    tree.insert(6);
+    expect(tree.find(6).val).toBe(6);
+  });
+
+  it('should found right of the root', () => {
+    let tree = new BinarySearchTree();
+    tree.insert(5);
+    tree.insert(4);
+    expect(tree.find(4).val).toBe(4);
+  });
+
+  it('should found node', () => {
+    let tree = new BinarySearchTree();
+    tree.insert(5).insert(7).insert(8).insert(3).insert(4).insert(6).insert(9);
+    expect(tree.find(5).val).toBe(5);
+    expect(tree.find(7).val).toBe(7);
+    expect(tree.find(8).val).toBe(8);
+    expect(tree.find(3).val).toBe(3);
+    expect(tree.find(4).val).toBe(4);
+    expect(tree.find(6).val).toBe(6);
+    expect(tree.find(9).val).toBe(9);
+  });
+
+  it('should reutrn null when not found', () => {
+    let tree = new BinarySearchTree();
+    tree.insert(5).insert(7).insert(8).insert(3).insert(4).insert(6).insert(9);
+    expect(tree.find(11)).toBe(null);
+  });
+});

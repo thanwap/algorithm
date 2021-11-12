@@ -34,4 +34,19 @@ export class BinarySearchTree {
 
     return this;
   }
+  find(val) {
+    let current = this.root;
+
+    while (current) {
+      if (val < current.val) {
+        current = current.left;
+      } else if (val > current.val) {
+        current = current.right;
+      } else {
+        return current;
+      }
+    }
+
+    return null;
+  }
 }
