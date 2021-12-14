@@ -5,9 +5,10 @@ export default class Tree {
   breathFirstSearch() {
     let queue = [this.root];
     let visited = [];
+    let cur;
 
     while (queue.length > 0) {
-      let cur = queue.shift();
+      cur = queue.shift();
 
       if (!cur) {
         continue;
