@@ -1,7 +1,7 @@
 import Tree from './tree';
 import { Node } from '../node';
 
-describe('dfs pre order', () => {
+describe('dfs post order', () => {
   it('should return visited order by the method of the traversal', () => {
     /*
      10
@@ -18,14 +18,14 @@ describe('dfs pre order', () => {
     tree.root.right = new Node(15);
     tree.root.right.right = new Node(20);
 
-    const res = tree.breathFirstSearch();
-    expect(res).toStrictEqual([10, 6, 3, 8, 15, 20]);
+    const res = tree.depthFirstSearchPostOrder();
+    expect(res).toStrictEqual([3, 8, 6, 20, 15, 10]);
   });
 
   it('should return empty when tree is not have a node', () => {
     const tree = new Tree();
 
-    const res = tree.breathFirstSearch();
+    const res = tree.depthFirstSearchPostOrder();
     expect(res).toStrictEqual([]);
   });
 });

@@ -26,11 +26,6 @@ export default class Tree {
 
     return visited;
   }
-  /*
-     10
-    6   15
-  3  8    20*/
-  // [10 6 3 8 15 20]
   depthFirstSearchPreOrder() {
     if (this.root === null) {
       return [];
@@ -48,6 +43,34 @@ export default class Tree {
       if (node.right) {
         callChild(node.right);
       }
+    };
+
+    callChild(this.root);
+
+    return visited;
+  }
+  /*
+     10
+    6   15
+  3  8    20*/
+  // [3 8 6 20 15 10]
+  depthFirstSearchPostOrder() {
+    if (this.root === null) {
+      return [];
+    }
+
+    const visited = [];
+
+    const callChild = (node) => {
+      if (node.left) {
+        callChild(node.left);
+      }
+
+      if (node.right) {
+        callChild(node.right);
+      }
+
+      visited.push(node.val);
     };
 
     callChild(this.root);
