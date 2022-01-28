@@ -26,4 +26,32 @@ export default class Tree {
 
     return visited;
   }
+  /*
+     10
+    6   15
+  3  8    20*/
+  // [10 6 3 8 15 20]
+  depthFirstSearchPreOrder() {
+    if (this.root === null) {
+      return [];
+    }
+
+    const visited = [];
+
+    const callChild = (node) => {
+      visited.push(node.val);
+
+      if (node.left) {
+        callChild(node.left);
+      }
+
+      if (node.right) {
+        callChild(node.right);
+      }
+    };
+
+    callChild(this.root);
+
+    return visited;
+  }
 }
