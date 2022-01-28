@@ -3,17 +3,16 @@ export default class Tree {
     this.root = null;
   }
   breathFirstSearch() {
+    if (this.root === null) {
+      return [];
+    }
+
     let queue = [this.root];
     let visited = [];
     let cur;
 
     while (queue.length > 0) {
       cur = queue.shift();
-
-      if (!cur) {
-        continue;
-      }
-
       visited.push(cur.val);
 
       if (cur.left) {
