@@ -77,4 +77,27 @@ export default class Tree {
 
     return visited;
   }
+  depthFirstSearchInOrder() {
+    if (this.root === null) {
+      return [];
+    }
+
+    const visited = [];
+
+    const callChild = (node) => {
+      if (node.left) {
+        callChild(node.left);
+      }
+
+      visited.push(node.val);
+
+      if (node.right) {
+        callChild(node.right);
+      }
+    };
+
+    callChild(this.root);
+
+    return visited;
+  }
 }
